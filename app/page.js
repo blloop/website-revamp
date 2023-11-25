@@ -1,7 +1,11 @@
+import { DarkButton, LightButton } from "./components/Buttons";
+
 export default function Home() {
   return (
-    <div>
+    <>
       <p>This is the home page!</p>
-    </div>
+      <DarkButton>This is Dark</DarkButton>
+      <LightButton>This is Light</LightButton>
+    </>
   );
 }
