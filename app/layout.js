@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 const play = Play({ subsets: ['latin'], weight: ['400', '700'] })
 
 export const metadata = {
-  title: 'My personal website',
+  title: 'Bill Yu',
   description: 'Welcome to my website!',
 }
 
