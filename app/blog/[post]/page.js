@@ -1,14 +1,27 @@
 import { client } from '@/sanity/lib/client';
+import { PortableText } from '@portabletext/react';
+import { urlForImage } from '@/sanity/lib/image';
+import { tryGetImageDimensions } from '@sanity/asset-utils';
 import Container from '../../components/Container';
 import DatePill from '../../components/DatePill';
+
+const portableTextComponents = {
+  types: {
+    image: ImageComponent,
+  },
+};
 
 export default async function Page({ params }) {
   const post = await getBlogPost(params.post);
 
   return (
     <Container>
-      <div className='mx-auto max-w-5xl space-y-8 py-8'>
+      <div className='mx-auto max-w-prose space-y-8 py-8'>
         <BlogPostHeader post={post[0]} />
+        <hr className='border-primary-200' />
+        <article className='prose md:prose-md prose-primary mx-auto'>
+          <PortableText value={post[0].body} components={portableTextComponents} />
+        </article>
       </div>
     </Container>
   );
@@ -35,5 +48,22 @@ function BlogPostHeader({ post }) {
       <h1 className='font-semibold text-4xl'>{post.title}</h1>
       <p className='font-medium text-primary-700 text-lg'>{post.description}</p>
     </header>
+  );
+}
+
+function ImageComponent({ value }) {
+  const { width, height } = tryGetImageDimensions(value);
+
+  return (
+    <Image
+      src={urlForImage(value).fit('max').auto('format').url()}
+      width={width}
+      height={height}
+      loading='lazy'
+      className='mx-auto md:max-w-prose rounded-lg'
+      style={{
+        aspectRatio: width / height,
+      }}
+    />
   );
 }

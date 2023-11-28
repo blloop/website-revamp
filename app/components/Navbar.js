@@ -17,9 +17,6 @@ export default function Navbar() {
             <li className='md:hover:underline'>
               <Link href='/projects'>Projects</Link>
             </li>
-            <li className='md:hover:underline'>
-              <Link href='/photos'>Photos</Link>
-            </li>
           </ul>
         </div>
       </nav>
