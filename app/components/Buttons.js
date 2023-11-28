@@ -16,7 +16,7 @@ export function LightButton({ children }) {
 
 function DefaultButton({ children, style }) {
   return (
-    <button className={`inline font-mediumm border-2 rounded-full md:px-4 px-3.5 md:py-1 py-0.5 md:text-base text-sm transition-colors ${style}`}>
+    <button className={`w-60 inline font-mediumm border-2 rounded-full md:px-4 px-3.5 md:py-1 py-0.5 md:text-base text-sm transition-colors ${style}`}>
       {children}
     </button>
   )
