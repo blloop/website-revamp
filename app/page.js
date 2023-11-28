@@ -1,4 +1,4 @@
-import { DarkButton, LightButton } from "./components/Buttons";
+import { DarkButton, LightButton } from './components/Buttons';
 
 export default function Home() {
   return (
