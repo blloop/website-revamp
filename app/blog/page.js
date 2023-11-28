@@ -1,6 +1,5 @@
 import { client } from '@/sanity/lib/client';
 import Container from '../components/Container';
-// import BlogPostCard from '@/app/blog/components/BlogPost';
 import BlogPostCard from '../components/BlogPost';
 
 export default async function Blog() {
