@@ -2,6 +2,7 @@ import { client } from '@/sanity/lib/client';
 import { PortableText } from '@portabletext/react';
 import { urlForImage } from '@/sanity/lib/image';
 import { tryGetImageDimensions } from '@sanity/asset-utils';
+import Image from 'next/image';
 import Container from '../../components/Container';
 import DatePill from '../../components/DatePill';
 

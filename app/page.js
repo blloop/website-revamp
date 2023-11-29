@@ -13,11 +13,11 @@ export default async function Home() {
       <div className='flex flex-col py-8 md:flex-row w-full justify-evenly bg-primary-500'>
         <div className='flex flex-col p-8 justify-end gap-2'>
           <p>Welcome to my website!</p>
-          <p className='text-5xl'>Hi, I'm Bill</p>
+          <p className='text-5xl'>Hi, I&apos;m Bill</p>
           <p>
             This is my portfolio and personal website. <br/>
-            I'm a programmer, hobby sprinter, and pianist who also enjoys reading. <br/>
-            Read my blog to follow my journey or learn about cool projects I've made!
+            I&apos;m a programmer, hobby sprinter, and pianist who also enjoys reading. <br/>
+            Read my blog to follow my journey or learn about cool projects I&apos;ve made!
           </p>
           <div className='flex gap-3 my-2'>
             <DarkButton><a href='/blog'>Read my blog</a></DarkButton>
