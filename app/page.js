@@ -36,6 +36,7 @@ export default async function Home() {
               src='/headshot.png'
               width='300'
               height='300'
+              alt='Me!'
             />
         </div>
       </div>

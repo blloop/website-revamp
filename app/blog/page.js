@@ -13,8 +13,7 @@ export default async function Blog() {
       <p className='text-4xl py-4'>My Blog</p>
       <div className='flex flex-col gap-4'>
         {posts.map((post) => (
-          <BlogListItem key={post.slug} post={post}/>
-          // <BlogPostCard key={post.slug} post=Ppost}/>
+            <BlogListItem key={post.slug} post={post}/>
         ))}
       </div>
     </Container>

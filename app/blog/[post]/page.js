@@ -19,6 +19,13 @@ export default async function Page({ params }) {
     <Container>
       <div className='mx-auto max-w-prose space-y-8 py-8'>
         <BlogPostHeader post={post[0]} />
+        <Image
+          src={urlForImage(post[0].image).auto('format').size(1920, 1920).url()}
+          width={1920}
+          height={1080}
+          alt={post[0].title}
+          className='h-64 w-128 object-cover rounded-2xl border border-primary-400'
+        />
         <hr className='border-primary-200' />
         <article className='prose md:prose-md prose-primary mx-auto'>
           <PortableText value={post[0].body} components={portableTextComponents} />
