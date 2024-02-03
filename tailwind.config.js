@@ -14,10 +14,15 @@ module.exports = {
       current: 'currentColor', 
       black: colors.black,
       white: colors.white, 
+      sky: colors.sky,
       primary: colors.lime,
       secondary: colors.amber,
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'header-image': "url('../public/header.jpg')",
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),
