@@ -14,7 +14,7 @@ export default function BlogPostCard({ post }) {
         width={1920}
         height={1080}
         alt={post.title}
-        className='rounded-2xl border border-primary-400'
+        className='rounded-2xl border-2 border-primary-600'
       />
       <div className='space-y-2'>
         <DatePill date={post.date} />

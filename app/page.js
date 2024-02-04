@@ -9,9 +9,9 @@ export default async function Home() {
 
   return (
     <>
-      <div className='bg-primary-200 bg-header-image bg-cover bg-no-repeat bg-center'>
-        <Container className='flex flex-row items-end justify-between gap-8'>
-          <div className='flex flex-col gap-6 text-sky-100'>
+      <div className='bg-primary-200'>
+        <Container className='flex flex-row items-end justify-between gap-8 bg-header-image bg-cover bg-no-repeat bg-center'>
+          <div className='flex flex-col gap-6 text-slate-300'>
             <p>Welcome to my website!</p>
             <p className='text-5xl'>Hi, I&apos;m Bill</p>
             <p>
@@ -30,17 +30,17 @@ export default async function Home() {
               <LinkButton src='/mail.svg' alt='Mail Icon' href='mailto:blloop@uw.edu'/>
             </div>
           </div>
-          <p className='text-sm text-gray-300'>Source: Surface Laptop 3 - Sandstone</p>
+          <p className='text-sm text-slate-400'>Source: Surface Laptop 3 - Sandstone</p>
+        </Container>
+        <Container className='flex flex-col gap-8'>
+          <p className='text-3xl w-fill text-center'>Latest Blog Posts</p>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+            {posts.map((post) => (
+              <BlogPostCard key={post.slug} post={post} />
+            ))}
+          </div>
         </Container>
       </div>
-      <Container className='flex flex-col gap-8'>
-        <p className='text-3xl w-fill text-center'>Latest Blog Posts</p>
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
-          {posts.map((post) => (
-            <BlogPostCard key={post.slug} post={post} />
-          ))}
-        </div>
-      </Container>
     </>
   );
 }

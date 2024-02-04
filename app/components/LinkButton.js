@@ -1,7 +1,7 @@
 export default function LinkButton({ src, alt, href }) {
   return (
     <a 
-      className='rounded-lg w-12 h-12 bg-primary-200 hover:bg-primary-600 transition ease-in-out'
+      className='rounded-lg w-12 h-12 bg-primary-200 hover:bg-primary-500 transition ease-in-out'
       href={href}
     >
       <img
