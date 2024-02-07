@@ -14,8 +14,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
-      <body className={play.className}>
+    <html lang='en' className="bg-primary-700">
+      <body className={play.className + ' bg-primary-200'}>
         <Navbar/>
         {children}
         <Footer/>

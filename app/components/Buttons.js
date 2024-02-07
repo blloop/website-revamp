@@ -1,6 +1,6 @@
 export function DarkButton({ children }) {
   return (
-    <DefaultButton style='bg-secondary-900 border-secondary-900 text-secondary-400 md:hover:bg-secondary-200 md:hover:text-secondary-900'>
+    <DefaultButton style='bg-secondary-900 border-secondary-900 text-secondary-400 md:hover:bg-secondary-400 md:hover:text-secondary-900'>
       {children}
     </DefaultButton>
   );

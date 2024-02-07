@@ -6,12 +6,10 @@ export default async function Projects() {
   const projects = await getProjects();
 
   return (
-    <Container>
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
-      </div>
+    <Container className='grid grid-cols-1 md:grid-cols-3 gap-4 bg-primary-200'>
+      {projects.map((project) => (
+        <ProjectCard key={project.slug} project={project} />
+      ))}
     </Container>
   );
 }

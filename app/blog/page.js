@@ -6,7 +6,7 @@ export default async function Blog() {
   const posts = await getBlogPosts();
 
   return (
-    <Container className='flex flex-col gap-8'>
+    <Container className='flex flex-col gap-8 bg-primary-200'>
       <p className='text-4xl'>My Blog</p>
       <div className='flex flex-col gap-4'>
         {posts.map((post) => (

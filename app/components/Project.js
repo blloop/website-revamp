@@ -6,8 +6,8 @@ import DatePill from './DatePill';
 export default function ProjectCard({ project }) {
   return (
     <Link
-    href={`/projects`}
-    // href={`/projects/${project.slug}`}
+    // href={`/projects`}
+    href={`/projects/${project.slug}`}
       className='space-y-4 md:hover:opacity-75 transition-opacity'
     >
       <Image
