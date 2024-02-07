@@ -1,5 +1,6 @@
 import { client } from '@/sanity/lib/client';
 import Image from 'next/image';
+import Moon from '../public/moon.gif'
 import Container from './components/Container';
 import BlogPostCard from './components/BlogPost';
 import LinkButton from './components/LinkButton';
@@ -31,8 +32,16 @@ export default async function Home() {
               <LinkButton src='/mail.svg' alt='Mail Icon' href='mailto:blloop@uw.edu'/>
             </div>
           </div>
-          <div className='h-80 flex flex-col grow justify-between'>
-            <p>Test</p>
+          <div className='h-80 flex flex-col grow items-end justify-between'>
+            <a href='https://en.wikipedia.org/wiki/Moon' target='_blank'>
+              <Image
+                src={Moon}
+                width={512}
+                height={512}
+                alt={'Rotating cubic moon'}
+                className='h-64 w-64'
+              />
+            </a>
             <p className='text-sm text-slate-400'>Source: Surface Laptop 3 - Sandstone</p>
           </div>
         </Container>
