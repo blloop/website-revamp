@@ -16,7 +16,7 @@ export default {
       validation: (Rule) => Rule.required(),
       options: {
         source: 'title',
-        maxLength: 96,
+        maxLength: 48,
       },
     },
     {
@@ -46,9 +46,7 @@ export default {
       type: 'array',
       of: [
         { type: 'block' },
-        {
-          type: 'image',
-        },
+        { type: 'image' },
       ],
     },
   ],

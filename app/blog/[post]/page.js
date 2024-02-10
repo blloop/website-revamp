@@ -51,10 +51,10 @@ async function getBlogPost(slug) {
 
 function BlogPostHeader({ post }) {
   return (
-    <header className='text-center space-y-4'>
-      <DatePill date={post.date} />
+    <header className='flex flex-col gap-2 items-center'>
       <h1 className='font-semibold text-4xl'>{post.title}</h1>
       <p className='font-medium text-primary-700 text-lg'>{post.description}</p>
+      <DatePill date={post.date} />
     </header>
   );
 }
