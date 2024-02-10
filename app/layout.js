@@ -1,10 +1,8 @@
-import { Inter } from 'next/font/google';
 import { Play } from 'next/font/google';
 import './globals.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-const inter = Inter({ subsets: ['latin'] })
 const play = Play({ subsets: ['latin'], weight: ['400', '700'] })
 
 export const metadata = {
