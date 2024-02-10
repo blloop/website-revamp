@@ -17,7 +17,7 @@ export default async function Page({ params }) {
 
   return (
     <Container>
-      <div className='mx-auto max-w-prose space-y-8 py-8'>
+      <div className='mx-auto max-w-prose space-y-8'>
         <BlogPostHeader post={post[0]} />
         <Image
           src={urlForImage(post[0].image).auto('format').size(1920, 1920).url()}
@@ -26,9 +26,9 @@ export default async function Page({ params }) {
           alt={post[0].title}
           className='h-64 w-128 object-cover rounded-2xl border border-primary-400'
         />
-        <hr className='border-primary-200' />
+        <hr className='border-primary-900' />
         <article className='prose md:prose-md prose-primary mx-auto'>
-          <PortableText value={post[0].body} components={portableTextComponents} />
+          <PortableText value={post[0].content} components={portableTextComponents} />
         </article>
       </div>
     </Container>
@@ -51,7 +51,7 @@ async function getBlogPost(slug) {
 
 function BlogPostHeader({ post }) {
   return (
-    <header className='flex flex-col gap-2 items-center'>
+    <header className='flex flex-col gap-4 items-center'>
       <h1 className='font-semibold text-4xl'>{post.title}</h1>
       <p className='font-medium text-primary-700 text-lg'>{post.description}</p>
       <DatePill date={post.date} />
@@ -68,7 +68,7 @@ function ImageComponent({ value }) {
       width={width}
       height={height}
       loading='lazy'
-      className='mx-auto md:max-w-prose rounded-lg'
+      className='md:max-w-prose rounded-lg'
       style={{
         aspectRatio: width / height,
       }}
