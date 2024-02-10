@@ -6,10 +6,16 @@ export default async function Projects() {
   const projects = await getProjects();
 
   return (
-    <Container className='grid grid-cols-1 md:grid-cols-3 gap-4 bg-primary-200'>
-      {projects.map((project) => (
-        <ProjectCard key={project.slug} project={project} />
-      ))}
+    <Container className='flex flex-col gap-8'>
+      <div>
+        {/* TODO: Add option to sort by date */}
+        <p className='text-4xl'>My Projects</p>
+      </div>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+        {projects.map((project) => (
+          <ProjectCard key={project.slug} project={project} />
+        ))}
+      </div>
     </Container>
   );
 }
