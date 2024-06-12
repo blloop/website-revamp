@@ -6,6 +6,8 @@ import BlogPostCard from './components/BlogPost';
 import LinkButton from './components/LinkButton';
 import { DarkButton, LightButton } from './components/Buttons';
 
+export const revalidate = 3600 // revalidate at most every hour
+
 export default async function Home() {
   const posts = await getBlogPosts();
 
@@ -67,6 +69,6 @@ async function getBlogPosts() {
     image
   }[0..2]`;
 
-  const posts = await client.fetch(query);
+  const posts = await client.fetch(query, { next: { revalidate: 3600 }});
   return posts;
 }

@@ -6,6 +6,8 @@ import Image from 'next/image';
 import Container from '../../components/Container';
 import DatePill from '../../components/DatePill';
 
+export const revalidate = 3600 // revalidate at most every hour
+
 const portableTextComponents = {
   types: {
     image: ImageComponent,

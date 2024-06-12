@@ -12,6 +12,8 @@ const portableTextComponents = {
   },
 };
 
+export const revalidate = 3600 // revalidate at most every hour
+
 export default async function Page({ params }) {
   const post = await getBlogPost(params.post);
 

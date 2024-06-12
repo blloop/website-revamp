@@ -2,6 +2,8 @@ import { client } from '@/sanity/lib/client';
 import Container from '../components/Container';
 import BlogListItem from '../components/BlogList';
 
+export const revalidate = 3600 // revalidate at most every hour
+
 export default async function Blog() {
   const posts = await getBlogPosts();
 

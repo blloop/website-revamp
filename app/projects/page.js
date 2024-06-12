@@ -2,6 +2,8 @@ import { client } from '@/sanity/lib/client';
 import Container from '../components/Container';
 import ProjectCard from '../components/Project';
 
+export const revalidate = 3600 // revalidate at most every hour
+
 export default async function Projects() {
   const projects = await getProjects();
 
