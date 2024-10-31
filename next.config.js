@@ -3,13 +3,14 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io',
-        port: '',
-        pathname: '/images/**',
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        port: "",
+        pathname: "/images/**",
       },
     ],
   },
-}
+  transpilePackages: ["geist"], // Add this line
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
