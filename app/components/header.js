@@ -14,21 +14,31 @@ export default function Header() {
       <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
         <defs>
           <linearGradient id="wave-gradient-1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#859F3D" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="#859F3D" stopOpacity="0.4" />
             <stop offset="50%" stopColor="#859F3D" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="#859F3D" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="#859F3D" stopOpacity="0.4" />
           </linearGradient>
           <linearGradient id="wave-gradient-2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#31511E" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="#6D8631" stopOpacity="0.4" />
+            <stop offset="50%" stopColor="#6D8631" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="#6D8631" stopOpacity="0.4" />
+          </linearGradient>
+          <linearGradient id="wave-gradient-3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#4B6B27" stopOpacity="0.4" />
+            <stop offset="50%" stopColor="#4B6B27" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="#4B6B27" stopOpacity="0.4" />
+          </linearGradient>
+          <linearGradient id="wave-gradient-4" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#31511E" stopOpacity="0.4" />
             <stop offset="50%" stopColor="#31511E" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="#31511E" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="#31511E" stopOpacity="0.4" />
           </linearGradient>
         </defs>
         {[
-          { d: "M0,50 Q20,40 40,60 T80,40 T120,50", stroke: "url(#wave-gradient-1)", strokeWidth: 0.75, duration: 6, delay: 0 },
-          { d: "M0,50 Q25,60 50,40 T100,60", stroke: "url(#wave-gradient-2)", strokeWidth: 1, duration: 5, delay: 3 },
-          { d: "M0,50 Q10,20 20,60 T40,30 T60,50", stroke: "url(#wave-gradient-2)", strokeWidth: 1.25, duration: 9, delay: 0 },
-          { d: "M0,50 Q30,70 60,40 T120,70", stroke: "url(#wave-gradient-1)", strokeWidth: 1.5, duration: 7.5, delay: 3 },
+          { d: "M0,45 Q20,40 40,50 T80,60 T120,50", stroke: "url(#wave-gradient-1)", strokeWidth: 1.25, duration: 8, delay: 0 },
+          { d: "M0,48 Q25,60 50,50 T110,50", stroke: "url(#wave-gradient-2)", strokeWidth: 1, duration: 9.5, delay: 6 },
+          { d: "M0,52 Q30,40 60,50 T120,60", stroke: "url(#wave-gradient-3)", strokeWidth: 1.5, duration: 8, delay: 2 },
+          { d: "M0,55 Q20,70 60,50 T110,50", stroke: "url(#wave-gradient-4)", strokeWidth: 1.25, duration: 9.5, delay: 4 },
         ].map((wave, index) => (
           <motion.path
             key={index}
@@ -39,7 +49,7 @@ export default function Header() {
             initial={{ pathLength: 0, pathOffset: 1, opacity: 0 }}
             animate={{
               pathLength: [0, 1, 1],
-              pathOffset: [1, 0, 0],
+              pathOffset: [0, 0, 1],
               opacity: [0, 1, 0]
             }}
             transition={{
