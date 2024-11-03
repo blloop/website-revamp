@@ -16,9 +16,6 @@ module.exports = {
       secondary: colors.amber,
     },
     extend: {
-      backgroundImage: {
-        "header-image": "url('../public/header.jpg')",
-      },
       colors: {
         primary: {
           50: "#A99FF2",
