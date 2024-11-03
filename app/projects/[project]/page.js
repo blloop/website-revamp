@@ -3,10 +3,8 @@ import { PortableText } from "@portabletext/react";
 import { urlForImage } from "@/sanity/lib/image";
 import { tryGetImageDimensions } from "@sanity/asset-utils";
 import Image from "next/image";
-import Container from "../../components/Container";
-import DatePill from "../../components/DatePill";
-
-export const revalidate = 3600; // revalidate at most every hour
+import Container from "@/components/Container";
+import DatePill from "@/components/DatePill";
 
 const portableTextComponents = {
   types: {
@@ -20,7 +18,13 @@ export default async function Project({ params }) {
   return (
     <Container>
       <div className="mx-auto max-w-prose space-y-8">
-        <ProjectHeader project={project[0]} />
+        <header className="flex flex-col gap-4 items-center">
+          <h1 className="font-semibold text-4xl">{project[0].title}</h1>
+          <p className="font-medium text-primary-700 text-lg">
+            {project.description}
+          </p>
+          <DatePill date={project.date} />
+        </header>
         <Image
           src={urlForImage(project[0].image)
             .auto("format")
@@ -53,20 +57,8 @@ async function getProject(slug) {
     content
   }`;
 
-  const projects = await client.fetch(query, { slug });
+  const projects = await client.fetch(query, { slug, next: { revalidate: 84600 } });
   return projects;
-}
-
-function ProjectHeader({ project }) {
-  return (
-    <header className="flex flex-col gap-4 items-center">
-      <h1 className="font-semibold text-4xl">{project.title}</h1>
-      <p className="font-medium text-primary-700 text-lg">
-        {project.description}
-      </p>
-      <DatePill date={project.date} />
-    </header>
-  );
 }
 
 function ImageComponent({ value }) {

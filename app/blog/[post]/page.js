@@ -3,16 +3,14 @@ import { PortableText } from "@portabletext/react";
 import { urlForImage } from "@/sanity/lib/image";
 import { tryGetImageDimensions } from "@sanity/asset-utils";
 import Image from "next/image";
-import Container from "../../components/Container";
-import DatePill from "../../components/DatePill";
+import Container from "@/components/Container";
+import DatePill from "@/components/DatePill";
 
 const portableTextComponents = {
   types: {
     image: ImageComponent,
   },
 };
-
-export const revalidate = 3600; // revalidate at most every hour
 
 export default async function Page({ params }) {
   const post = await getBlogPost(params.post);
@@ -50,7 +48,7 @@ async function getBlogPost(slug) {
     content
   }`;
 
-  const posts = await client.fetch(query, { slug });
+  const posts = await client.fetch(query, { slug, next: { revalidate: 84600 } });
   return posts;
 }
 

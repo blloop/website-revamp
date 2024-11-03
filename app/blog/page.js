@@ -1,8 +1,6 @@
 import { client } from "@/sanity/lib/client";
-import Container from "../components/Container";
-import BlogListItem from "../components/BlogList";
-
-export const revalidate = 3600; // revalidate at most every hour
+import Container from "@/components/Container";
+import BlogListItem from "@/components/BlogList";
 
 export default async function Blog() {
   const posts = await getBlogPosts();
@@ -31,6 +29,6 @@ async function getBlogPosts() {
     image
   }`;
 
-  const posts = await client.fetch(query);
+  const posts = await client.fetch(query, { next: { revalidate: 84600 } });
   return posts;
 }
