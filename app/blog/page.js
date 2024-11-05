@@ -1,4 +1,4 @@
-import { client } from "@/sanity/lib/client";
+import { client } from "sanity/lib/client";
 import Container from "@/components/Container";
 import BlogListItem from "@/components/BlogList";
 

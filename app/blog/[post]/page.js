@@ -1,6 +1,6 @@
-import { client } from "@/sanity/lib/client";
+import { client } from "sanity/lib/client";
 import { PortableText } from "@portabletext/react";
-import { urlForImage } from "@/sanity/lib/image";
+import { urlForImage } from "sanity/lib/image";
 import { tryGetImageDimensions } from "@sanity/asset-utils";
 import Image from "next/image";
 import Container from "@/components/Container";
@@ -48,7 +48,10 @@ async function getBlogPost(slug) {
     content
   }`;
 
-  const posts = await client.fetch(query, { slug, next: { revalidate: 84600 } });
+  const posts = await client.fetch(query, {
+    slug,
+    next: { revalidate: 84600 },
+  });
   return posts;
 }
 

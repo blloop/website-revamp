@@ -11,9 +11,12 @@ export default function Navbar() {
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold">Bill Yu</h1>
           <ul className="flex space-x-4">
-            {['Blog', 'Experience', 'Projects', 'Contact'].map((item) => (
+            {["Blog", "Experience", "Projects", "Contact"].map((item) => (
               <li key={item}>
-                <Link href={`/${item.toLowerCase()}`} className="hover:text-[#859F3D] transition-colors">
+                <Link
+                  href={`/${item.toLowerCase()}`}
+                  className="hover:text-[#859F3D] transition-colors"
+                >
                   {item}
                 </Link>
               </li>
