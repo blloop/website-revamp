@@ -1,6 +1,6 @@
-import { client } from "sanity/lib/client";
-import Container from "../components/Container";
-import ProjectCard from "../components/Project";
+import { client } from "/sanity/lib/client";
+import Container from "@/components/Container";
+import ProjectCard from "@/components/Project";
 
 export default async function Projects() {
   const projects = await getProjects();
