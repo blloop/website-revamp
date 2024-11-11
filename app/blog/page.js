@@ -6,7 +6,7 @@ export default async function Blog() {
   const posts = await getBlogPosts();
 
   return (
-    <Container className="flex flex-col items-start gap-8 bg-primary-200">
+    <Container className="flex flex-col items-start gap-8">
       <div>
         {/* TODO: Add option to sort by date */}
         <p className="text-4xl">My Blog</p>

@@ -11,24 +11,21 @@ module.exports = {
   theme: {
     colors: {
       transparent: "transparent",
-      current: "currentColor",
+
       slate: colors.slate,
       secondary: colors.amber,
     },
     extend: {
       colors: {
-        primary: {
-          50: "#A99FF2",
-          100: "#9F95E5",
-          200: "#8E84CC",
-          300: "#7B72B2",
-          400: "#6A6199",
-          500: "#58517F",
-          600: "#474166",
-          700: "#35304C",
-          800: "#242033",
-          900: "#121019",
+        olive: {
+          50: "#F6FCDF",
+          300: "#859F3D",
+          700: "#31511E",
         },
+        gray: {
+          600: "#2A2A29",
+          800: "#1A1A19",
+        }
       },
     },
   },

@@ -1,12 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function CTA() {
   return (
     <motion.section
-      className="py-20 bg-[#1A1A19] text-center"
+      className="py-20 text-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -19,7 +18,7 @@ export default function CTA() {
         </p>
         <motion.button whileHover={{ scale: 1.05 }}>
           <a
-            className="bg-[#859F3D] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-opacity-80 transition-colors"
+            className="bg-olive-300 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-opacity-80 transition-colors"
             href="/contact"
           >
             Send a Message

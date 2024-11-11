@@ -15,7 +15,7 @@ export default function Skills() {
   const [hoveredSkill, setHoveredSkill] = useState(null);
 
   return (
-    <section className="py-20 bg-[#1A1A19]">
+    <section className="py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-12 text-center">My Skillset</h2>
         <p className="text-center mb-8">
@@ -35,9 +35,9 @@ export default function Skills() {
                 <span>{skill.name}</span>
                 <span>{skill.level}%</span>
               </div>
-              <div className="h-4 bg-[#31511E] rounded-full overflow-hidden">
+              <div className="h-4 bg-olive-700 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-[#859F3D] transition-all rounded-full duration-300 ease-in-out"
+                  className="h-full bg-olive-300 transition-all rounded-full duration-300 ease-in-out"
                   style={{
                     width: `${skill.level}%`,
                     transform:

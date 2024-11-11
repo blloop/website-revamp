@@ -7,13 +7,13 @@ export default function Navbar() {
   const pathname = usePathname();
   if (pathname != "/studio") {
     return (
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#2A2A29] bg-opacity-75 p-4">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-600 bg-opacity-75 p-4">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold">
             {pathname === "/" ? (
               "Bill Yu"
             ) : (
-              <Link href="/" className="hover:text-[#859F3D] transition-colors">
+              <Link href="/" className="hover:text-olive-300 transition-colors">
                 Bill Yu
               </Link>
             )}
@@ -26,7 +26,7 @@ export default function Navbar() {
                 ) : (
                   <Link
                     href={`/${page.toLowerCase()}`}
-                    className="hover:text-[#859F3D] transition-colors"
+                    className="hover:text-olive-300 transition-colors"
                   >
                     {page}
                   </Link>

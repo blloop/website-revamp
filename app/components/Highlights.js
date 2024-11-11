@@ -31,12 +31,12 @@ export default function Highlights() {
         {highlights.map((highlight, index) => (
           <div
             key={index}
-            className="bg-[#31511E] p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            className="bg-olive-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
-            <highlight.icon className="w-12 h-12 mb-4 text-[#859F3D]" />
+            <highlight.icon className="w-12 h-12 mb-4 text-olive-300" />
             <h3 className="text-xl font-bold mb-2">{highlight.title}</h3>
             <p className="mb-4">{highlight.description}</p>
-            <a href="#" className="text-[#859F3D] hover:underline">
+            <a href="#" className="text-olive-300 hover:underline">
               Read More
             </a>
           </div>
