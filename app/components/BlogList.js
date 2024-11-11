@@ -1,28 +1,40 @@
+"use client";
+
 import { urlForImage } from "/sanity/lib/image";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import DatePill from "./DatePill";
 
-export default function BlogListItem({ post }) {
+export default function BlogListItem({ post, index }) {
   return (
-    <Link
-      href={`/blog/${post.slug}`}
-      className="h-56 sm:h-32 flex flex-col sm:flex-row justify-start sm:gap-4 space-y-4 md:hover:opacity-75 transition-opacity"
+    <motion.article
+      key={post.slug}
+      className="bg-gray-600 rounded-lg overflow-hidden shadow-lg transition-shadow duration-300"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <Image
-        src={urlForImage(post.image).auto("format").size(1080, 1080).url()}
-        width={1920}
-        height={1080}
-        alt={post.title}
-        className="h-32 w-64 sm:w-32 object-cover rounded-2xl border border-primary-400"
-      />
-      <div className="space-y-2">
-        <DatePill date={post.date} />
-        <h2 className="h-6 text-lg text-clip font-semibold">{post.title}</h2>
-        <p className="line-clamp-1 text-sm text-clip text-primary-600">
-          {post.description}
-        </p>
-      </div>
-    </Link>
+      <Link
+        href={`/blog/${post.slug}`}
+        className="block md:hover:opacity-75 transition-opacity"
+      >
+        <div className="relative">
+          <Image
+            src={urlForImage(post.image).auto("format").size(1080, 1080).url()}
+            width={1920}
+            height={1080}
+            alt={post.title}
+            className="w-full h-48 object-cover"
+          />
+          <div className="absolute top-0 left-0 m-4 px-3 py-1 bg-olive-300 text-sm font-semibold rounded-full">
+            {post.date}
+          </div>
+        </div>
+        <div className="p-6">
+          <h2 className="text-xl font-bold mb-2 line-clamp-2">{post.title}</h2>
+          <p className="opacity-80 line-clamp-1">{post.description}</p>
+        </div>
+      </Link>
+    </motion.article>
   );
 }

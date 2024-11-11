@@ -12,37 +12,35 @@ const portableTextComponents = {
   },
 };
 
-export default async function Project({ params }) {
+export default async function Page({ params }) {
   const project = await getProject(params.project);
 
   return (
-    <Container>
-      <div className="mx-auto max-w-prose space-y-8">
-        <header className="flex flex-col gap-4 items-center">
-          <h1 className="font-semibold text-4xl">{project[0].title}</h1>
-          <p className="font-medium text-primary-700 text-lg">
-            {project.description}
-          </p>
-          <DatePill date={project.date} />
-        </header>
-        <Image
-          src={urlForImage(project[0].image)
-            .auto("format")
-            .size(1920, 1920)
-            .url()}
-          width={1920}
-          height={1080}
-          alt={project[0].title}
-          className="h-64 w-128 object-cover rounded-2xl border border-primary-400"
+    <Container className="max-w-prose">
+      <header className="flex flex-col gap-4 items-center">
+        <h1 className="font-semibold text-4xl">{project[0].title}</h1>
+        <p className="font-medium text-primary-700 text-lg">
+          {project.description}
+        </p>
+        <DatePill date={project.date} />
+      </header>
+      <Image
+        src={urlForImage(project[0].image)
+          .auto("format")
+          .size(1920, 1920)
+          .url()}
+        width={1920}
+        height={1080}
+        alt={project[0].title}
+        className="h-64 w-128 object-cover rounded-2xl border border-primary-400"
+      />
+      <hr className="border-primary-900" />
+      <article className="prose md:prose-md prose-primary mx-auto">
+        <PortableText
+          value={project[0].content}
+          components={portableTextComponents}
         />
-        <hr className="border-primary-900" />
-        <article className="prose md:prose-md prose-primary mx-auto">
-          <PortableText
-            value={project[0].content}
-            components={portableTextComponents}
-          />
-        </article>
-      </div>
+      </article>
     </Container>
   );
 }

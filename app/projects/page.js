@@ -2,11 +2,11 @@ import { client } from "/sanity/lib/client";
 import Container from "@/components/Container";
 import ProjectCard from "@/components/Project";
 
-export default async function Projects() {
+export default async function Page() {
   const projects = await getProjects();
 
   return (
-    <Container className="flex flex-col gap-8">
+    <Container>
       <div>
         {/* TODO: Add option to sort by date */}
         <p className="text-4xl">My Projects</p>

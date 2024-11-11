@@ -10,7 +10,7 @@ export default function Navbar() {
   const links = ["Blog", "Experience", "Projects", "Contact"];
   const pathname = usePathname();
 
-  if (pathname != "/studio") {
+  if (!pathname.includes("/studio")) {
     return (
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-600 bg-opacity-75 p-4">
         <div className="container mx-auto flex justify-between items-center">

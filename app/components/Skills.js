@@ -7,7 +7,7 @@ const skills = [
   { name: "JavaScript", level: 85 },
   { name: "React", level: 80 },
   { name: "Next.js", level: 75 },
-  { name: "Node.js", level: 70 },
+  { name: "Node.js", level: 75 },
   { name: "TailwindCSS", level: 85 },
 ];
 
@@ -22,7 +22,7 @@ export default function Skills() {
         stay up-to-date with the latest trends and best practices in web
         development.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
         {skills.map((skill, index) => (
           <div
             key={index}

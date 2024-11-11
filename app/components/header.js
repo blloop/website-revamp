@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function Header() {
   return (
     <header className="relative h-screen min-h-[40rem] flex flex-col items-center justify-center overflow-hidden">
-      <div className="relative z-10 text-center pt-96">
+      <div className="relative z-10 text-center pt-80">
         <h2 className="text-4xl md:text-6xl font-bold m-6 md:m-12">
           Building Beautiful, Seamless Interactions
         </h2>

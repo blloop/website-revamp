@@ -16,24 +16,22 @@ export default async function Page({ params }) {
   const post = await getBlogPost(params.post);
 
   return (
-    <Container>
-      <div className="mx-auto max-w-prose space-y-8">
-        <BlogPostHeader post={post[0]} />
-        <Image
-          src={urlForImage(post[0].image).auto("format").size(1920, 1920).url()}
-          width={1920}
-          height={1080}
-          alt={post[0].title}
-          className="h-64 w-128 object-cover rounded-2xl border border-primary-400"
+    <Container className="max-w-prose">
+      <BlogPostHeader post={post[0]} />
+      <Image
+        src={urlForImage(post[0].image).auto("format").size(1920, 1920).url()}
+        width={1920}
+        height={1080}
+        alt={post[0].title}
+        className="h-64 w-128 object-cover rounded-2xl border border-primary-400"
+      />
+      <hr className="border-primary-900" />
+      <article className="prose md:prose-md prose-primary mx-auto">
+        <PortableText
+          value={post[0].content}
+          components={portableTextComponents}
         />
-        <hr className="border-primary-900" />
-        <article className="prose md:prose-md prose-primary mx-auto">
-          <PortableText
-            value={post[0].content}
-            components={portableTextComponents}
-          />
-        </article>
-      </div>
+      </article>
     </Container>
   );
 }

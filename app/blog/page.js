@@ -2,18 +2,19 @@ import { client } from "/sanity/lib/client";
 import Container from "@/components/Container";
 import BlogListItem from "@/components/BlogList";
 
-export default async function Blog() {
+export default async function Page() {
   const posts = await getBlogPosts();
 
   return (
-    <Container className="flex flex-col items-start gap-8">
-      <div>
-        {/* TODO: Add option to sort by date */}
-        <p className="text-4xl">My Blog</p>
+    <Container>
+      <div className="flex flex-col gap-2">
+        <p className="text-4xl underline">Blog Articles</p>
+        <p className="text-2xl text-olive-300">Insights on Web Development</p>
       </div>
-      <div className="flex flex-col gap-4">
-        {posts.map((post) => (
-          <BlogListItem key={post.slug} post={post} />
+      {/* TODO: Add option to sort by date */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map((post, index) => (
+          <BlogListItem post={post} index={index} />
         ))}
       </div>
     </Container>

@@ -1,9 +1,7 @@
 export default function Container({ className, children }) {
   return (
     <div
-      className={
-        "max-w-7xl mx-auto mt-16 py-8 px-6 sm:px-12 " + (className || "")
-      }
+      className={`container mx-auto mt-16 flex flex-col gap-8 p-4 md:p-8 ${className || ""}`}
     >
       {children}
     </div>
