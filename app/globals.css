@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#header-bg {
+  top: calc(max(25vh - 15rem, -5rem));
+}

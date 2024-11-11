@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 export default function Header() {
   return (
-    <header className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
+    <header className="relative h-screen min-h-[40rem] flex flex-col items-center justify-center overflow-hidden">
       <div className="relative z-10 text-center pt-96">
-        <h2 className="text-4xl md:text-6xl font-bold mx-12 mb-12">
+        <h2 className="text-4xl md:text-6xl font-bold m-6 md:m-12">
           Building Beautiful, Seamless Interactions
         </h2>
         <a
@@ -17,7 +17,8 @@ export default function Header() {
         </a>
       </div>
       <svg
-        className="absolute inset-0 w-full h-full -top-32"
+        id="header-bg"
+        className="absolute inset-0 md:w-full h-[48rem] -left-[50vw] md:left-0 w-[200vw]"
         preserveAspectRatio="none"
         viewBox="0 0 100 100"
       >

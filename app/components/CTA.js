@@ -10,7 +10,7 @@ export default function CTA() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8">
         <h2 className="text-3xl font-bold mb-8">Let's Connect</h2>
         <p className="mb-8">
           Interested in working together or have a question? Feel free to reach
