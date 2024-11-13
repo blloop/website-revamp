@@ -9,7 +9,7 @@ export default async function Page() {
     <Container>
       <div>
         {/* TODO: Add option to sort by date */}
-        <p className="text-4xl">My Projects</p>
+        <p className="text-4xl font-bold">Projects</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {projects.map((project) => (

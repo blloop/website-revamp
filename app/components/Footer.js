@@ -11,19 +11,19 @@ export default function Footer() {
       <footer className="py-8 text-center border-t-2 border-gray-600">
         <div className="flex justify-center space-x-6">
           <a
-            href="#"
+            href="https://github.com/blloop"
             className="text-olive-300 hover:text-opacity-80 transition-colors"
           >
             <Github size={24} />
           </a>
           <a
-            href="#"
+            href="https://linkedin.com/in/billyu32"
             className="text-olive-300 hover:text-opacity-80 transition-colors"
           >
             <Linkedin size={24} />
           </a>
           <a
-            href="#"
+            href="mailto:blloop@uw.edu"
             className="text-olive-300 hover:text-opacity-80 transition-colors"
           >
             <Mail size={24} />
