@@ -8,7 +8,6 @@ import Link from "next/link";
 export default function BlogListItem({ post, index }) {
   return (
     <motion.article
-      key={post.slug}
       className="bg-gray-600 rounded-lg overflow-hidden shadow-lg transition-shadow duration-300"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}

@@ -2,6 +2,11 @@ import { client } from "/sanity/lib/client";
 import Container from "@/components/Container";
 import ProjectCard from "@/components/Project";
 
+export const metadata = {
+  title: "Bill Yu | Project",
+  description: "Check out my cool projects!",
+};
+
 export default async function Page() {
   const projects = await getProjects();
 
@@ -12,8 +17,8 @@ export default async function Page() {
         <p className="text-4xl font-bold">Projects</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+        {projects.map((project, index) => (
+          <ProjectCard project={project} key={index} />
         ))}
       </div>
     </Container>
