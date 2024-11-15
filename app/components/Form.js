@@ -1,17 +1,17 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, User, Mail, MessageSquare } from "lucide-react";
 
 export default function Form() {
+  const [status, setStatus] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState("");
-  const form = useRef();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -19,8 +19,8 @@ export default function Form() {
 
   const sendEmail = async (e) => {
     e.preventDefault();
-
     setStatus("Sending...");
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -28,14 +28,9 @@ export default function Form() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          service_id: process.env.EMAILJS_SERVICE_ID,
-          template_id: process.env.EMAILJS_TEMPLATE_ID,
-          user_id: process.env.EMAILJS_USER_ID,
-          template_params: {
-            name: formData.name,
-            email: formData.email,
-            message: formData.message,
-          },
+          user_name: formData.name,
+          user_email: formData.email,
+          message: formData.message,
         }),
       });
 
@@ -43,7 +38,7 @@ export default function Form() {
 
       if (response.ok) {
         setStatus("Email sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
+        // setFormData({ name: "", email: "", message: "" });
       } else {
         setStatus(`Error: ${result.message}`);
       }
@@ -54,7 +49,6 @@ export default function Form() {
 
   return (
     <motion.form
-      ref={form}
       onSubmit={sendEmail}
       className="w-[48rem] max-w-full mx-auto space-y-6 bg-gray-600 p-8 rounded-lg shadow-xl"
       initial={{ opacity: 0, y: 50 }}
@@ -67,12 +61,14 @@ export default function Form() {
         </label>
         <div className="relative">
           <input
+            id="name"
             name="name"
             type="text"
             value={formData.name}
             onChange={handleChange}
             className="w-full bg-gray-800 border-2 border-olive-700 rounded-lg py-3 px-4 pl-12 focus:outline-none focus:border-olive-300 transition-colors"
             required
+            autoComplete="true"
           />
           <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-olive-300" />
         </div>
@@ -83,12 +79,14 @@ export default function Form() {
         </label>
         <div className="relative">
           <input
+            id="email"
             name="email"
             type="email"
             value={formData.email}
             onChange={handleChange}
             className="w-full bg-gray-800 border-2 border-olive-700 rounded-lg py-3 px-4 pl-12 focus:outline-none focus:border-olive-300 transition-colors"
             required
+            autoComplete="true"
           />
           <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-olive-300" />
         </div>
@@ -99,12 +97,14 @@ export default function Form() {
         </label>
         <div className="relative">
           <textarea
+            id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
             rows={5}
             className="w-full bg-gray-800 border-2 border-olive-700 rounded-lg py-4 pl-12 pr-4 focus:outline-none focus:border-olive-300 transition-colors"
             required
+            autoComplete="true"
           ></textarea>
           <MessageSquare className="absolute left-4 top-4 text-olive-300" />
         </div>
