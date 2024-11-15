@@ -1,10 +1,16 @@
 import { NextResponse } from "next/server";
-import emailjs from "@emailjs/browser";
 
 export async function POST(req) {
-  try {
-    const params = await req.json();
+  if (req.method !== "POST") {
+    return new Response(
+      JSON.stringify({ message: "Only POST requests allowed" }),
+      { status: 405 },
+    );
+  }
 
+  const params = await req.json();
+
+  try {
     const response = await fetch(
       "https://api.emailjs.com/api/v1.0/email/send",
       {

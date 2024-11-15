@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Send, User, Mail, MessageSquare } from "lucide-react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Form() {
   const [status, setStatus] = useState("");
@@ -11,6 +12,8 @@ export default function Form() {
     email: "",
     message: "",
   });
+  const [verified, setVerified] = useState(false);
+  const recaptchaRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,6 +22,10 @@ export default function Form() {
 
   const sendEmail = async (e) => {
     e.preventDefault();
+    if (!verified) {
+      setStatus("You must complete the CAPTCHA above to continue.");
+      return;
+    }
     setStatus("Sending...");
 
     try {
@@ -38,7 +45,10 @@ export default function Form() {
 
       if (response.ok) {
         setStatus("Email sent successfully!");
-        // setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => {
+          setStatus("");
+        }, 5000);
       } else {
         setStatus(`Error: ${result.message}`);
       }
@@ -46,6 +56,25 @@ export default function Form() {
       setStatus(`Error: ${error.message}`);
     }
   };
+
+  async function handleCaptcha(token) {
+    try {
+      if (token) {
+        await fetch("/api/captcha", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ token }),
+        });
+        setVerified(true);
+        setStatus("");
+      }
+    } catch (e) {
+      setVerified(false);
+    }
+  }
 
   return (
     <motion.form
@@ -109,16 +138,31 @@ export default function Form() {
           <MessageSquare className="absolute left-4 top-4 text-olive-300" />
         </div>
       </div>
+      <ReCAPTCHA
+        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+        ref={recaptchaRef}
+        onChange={handleCaptcha}
+        onExpired={() => setVerified(false)}
+      />
       <p>{status}</p>
-      <motion.button
-        type="submit"
-        className="w-full bg-olive-300 text-gray-800 font-bold py-3 px-4 rounded-lg hover:transition-colors duration-300 flex items-center justify-center"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        Send Message
-        <Send className="ml-2 h-5 w-5" />
-      </motion.button>
+      {verified ? (
+        <motion.button
+          type="submit"
+          className="w-full bg-olive-300 text-gray-800 font-bold py-3 px-4 rounded-lg hover:transition-colors duration-300 flex items-center justify-center"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Send Message
+          <Send className="ml-2 h-5 w-5" />
+        </motion.button>
+      ) : (
+        <button
+          disabled
+          className="w-full bg-olive-700 text-gray-800 font-bold py-3 px-4 rounded-lg hover:transition-colors duration-300 flex items-center justify-center"
+        >
+          Send Message
+        </button>
+      )}
     </motion.form>
   );
 }
