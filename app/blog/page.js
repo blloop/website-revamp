@@ -1,6 +1,6 @@
 import { client } from "/sanity/lib/client";
 import Container from "@/components/Container";
-import BlogListItem from "@/components/BlogList";
+import BlogCard from "@/components/Blog";
 
 export const metadata = {
   title: "Bill Yu | Blog",
@@ -19,7 +19,7 @@ export default async function Page() {
       {/* TODO: Add option to sort by date */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.map((post, index) => (
-          <BlogListItem post={post} key={index} index={index} />
+          <BlogCard post={post} key={index} index={index} />
         ))}
       </div>
     </Container>

@@ -17,7 +17,11 @@ export default async function Page({ params }) {
 
   return (
     <Container className="max-w-prose">
-      <BlogPostHeader post={post[0]} />
+      <header className="flex flex-col gap-4 items-center">
+        <h1 className="font-semibold text-4xl">{post[0].title}</h1>
+        <p className="font-medium text-primary-700 text-lg">{post[0].description}</p>
+        <DatePill date={post[0].date} />
+      </header>
       <Image
         src={urlForImage(post[0].image).auto("format").size(1920, 1920).url()}
         width={1920}
@@ -51,16 +55,6 @@ async function getBlogPost(slug) {
     next: { revalidate: 84600 },
   });
   return posts;
-}
-
-function BlogPostHeader({ post }) {
-  return (
-    <header className="flex flex-col gap-4 items-center">
-      <h1 className="font-semibold text-4xl">{post.title}</h1>
-      <p className="font-medium text-primary-700 text-lg">{post.description}</p>
-      <DatePill date={post.date} />
-    </header>
-  );
 }
 
 function ImageComponent({ value }) {

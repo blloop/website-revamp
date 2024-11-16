@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function BlogListItem({ post, index }) {
+export default function BlogCard({ post, index }) {
   return (
     <motion.article
       className="bg-gray-600 rounded-lg overflow-hidden shadow-lg transition-shadow duration-300"
