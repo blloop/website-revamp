@@ -92,6 +92,7 @@ function ImageComponent({ value }) {
   return (
     <Image
       src={urlForImage(value).fit("max").auto("format").url()}
+      alt=""
       width={width}
       height={height}
       loading="lazy"
