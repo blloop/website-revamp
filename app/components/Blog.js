@@ -25,7 +25,7 @@ export default function BlogCard({ post, index }) {
             alt={post.title}
             className="w-full h-48 object-cover"
           />
-          <div className="absolute top-0 left-0 m-4 px-3 py-1 bg-olive-300 text-sm font-semibold rounded-full">
+          <div className="absolute top-0 left-0 m-4 px-3 py-1 font-mono bg-olive-700 text-sm font-semibold rounded-full">
             {post.date}
           </div>
         </div>

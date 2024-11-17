@@ -32,7 +32,8 @@ async function getBlogPosts() {
     description,
     date,
     'slug':slug.current,
-    image
+    image,
+    tags
   }`;
 
   const posts = await client.fetch(query, { next: { revalidate: 84600 } });
