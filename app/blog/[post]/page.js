@@ -30,7 +30,7 @@ export default async function Page({ params }) {
         <p className="font-medium text-lg">{post[0].description}</p>
         <div className="flex items-center gap-2 my-4 text-olive-300">
           <Calendar className="w-5 h-5" />
-          <span>{post[0].date}</span>
+          <span className="font-mono">{post[0].date}</span>
           <div />
           <Clock className="w-5 h-5" />
           <span>

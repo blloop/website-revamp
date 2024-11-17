@@ -13,7 +13,7 @@ export default function Experience({ experience, index }) {
       transition={{ duration: 0.5, delay: index * 0.2 }}
     >
       <div
-        className={`absolute p-2 left-12 top-[3.5rem] transform -translate-x-1/2 w-20 h-20 bg-olive-300 rounded-full z-10 ${index % 2 === 0 ? "md:-right-20 md:left-auto" : "md:left-0"}`}
+        className={`absolute p-4 left-12 top-[3.5rem] transform -translate-x-1/2 w-20 h-20 bg-olive-300 rounded-full z-10 ${index % 2 === 0 ? "md:-right-20 md:left-auto" : "md:left-0"}`}
       >
         {experience.logo && (
           <Image
@@ -24,7 +24,7 @@ export default function Experience({ experience, index }) {
             width={256}
             height={256}
             alt={experience.title}
-            className="size-full rounded-full object-cover"
+            className="size-full"
           />
         )}
       </div>
@@ -46,7 +46,9 @@ export default function Experience({ experience, index }) {
         </div>
         <p className="mb-2">{experience.description}</p>
         <div className="flex items-center justify-end">
-          <span className=" font-bold text-olive-300 ">{experience.date}</span>
+          <span className=" font-bold font-mono text-olive-300 ">
+            {experience.date}
+          </span>
         </div>
       </div>
     </motion.div>

@@ -35,7 +35,7 @@ export default function ProjectCard({ project, index }) {
         <p className="text-lg">{project.description}</p>
         <div className="flex items-center justify-center text-olive-300">
           <Calendar className="w-5 h-5 mr-2" />
-          <span>{project.date}</span>
+          <span className="font-mono">{project.date}</span>
         </div>
         <motion.button
           className="bg-olive-700 px-6 py-3 rounded-full hover:bg-olive-300 transition-colors duration-300 flex items-center mx-auto"
