@@ -4,7 +4,6 @@ import { urlForImage } from "/sanity/lib/image";
 import { tryGetImageDimensions } from "@sanity/asset-utils";
 import Image from "next/image";
 import Container from "@/components/Container";
-import DatePill from "@/components/DatePill";
 
 const portableTextComponents = {
   types: {
@@ -22,7 +21,6 @@ export default async function Page({ params }) {
         <p className="font-medium text-primary-700 text-lg">
           {project.description}
         </p>
-        <DatePill date={project.date} />
       </header>
       <Image
         src={urlForImage(project[0].image)

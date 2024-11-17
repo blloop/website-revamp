@@ -12,7 +12,7 @@ export default async function Page() {
 
   return (
     <Container className="relative">
-      <h1 className="text-3xl sm:text-5xl font-bold mt-4 md:mt-8 text-center">
+      <h1 className="text-3xl sm:text-5xl font-bold mt-4 md:mt-8 text-center italic">
         My Journey
       </h1>
       <div className="absolute left-16 md:left-1/2 transform md:-translate-x-1/2 w-1 top-32 bottom-4 md:bottom-8 bg-olive-700" />

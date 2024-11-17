@@ -4,7 +4,6 @@ import { urlForImage } from "/sanity/lib/image";
 import { tryGetImageDimensions } from "@sanity/asset-utils";
 import Image from "next/image";
 import Container from "@/components/Container";
-import DatePill from "@/components/DatePill";
 
 const portableTextComponents = {
   types: {
@@ -19,8 +18,9 @@ export default async function Page({ params }) {
     <Container className="max-w-prose">
       <header className="flex flex-col gap-4 items-center">
         <h1 className="font-semibold text-4xl">{post[0].title}</h1>
-        <p className="font-medium text-primary-700 text-lg">{post[0].description}</p>
-        <DatePill date={post[0].date} />
+        <p className="font-medium text-primary-700 text-lg">
+          {post[0].description}
+        </p>
       </header>
       <Image
         src={urlForImage(post[0].image).auto("format").size(1920, 1920).url()}

@@ -26,7 +26,7 @@ export default function Navbar() {
           <ul className="hidden sm:flex space-x-4">
             {links.map((page, index) => (
               <li key={index}>
-                {pathname.includes(page.toLowerCase()) ? (
+                {pathname === "/" + page.toLowerCase() ? (
                   <p className="underline underline-offset-2">{page}</p>
                 ) : (
                   <Link
@@ -49,7 +49,7 @@ export default function Navbar() {
           {open && (
             <div className="flex flex-col text-right w-full absolute top-full left-0 bg-gray-600 bg-opacity-50">
               {links.map((page, index) =>
-                pathname.includes(page.toLowerCase()) ? (
+                pathname === "/" + page.toLowerCase() ? (
                   <p
                     key={index}
                     className="bg-olive-700 underline underline-offset-2 p-4"

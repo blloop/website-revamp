@@ -11,9 +11,6 @@ module.exports = {
   theme: {
     colors: {
       transparent: "transparent",
-
-      slate: colors.slate,
-      secondary: colors.amber,
     },
     extend: {
       colors: {

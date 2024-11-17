@@ -12,13 +12,14 @@ export default async function Page() {
 
   return (
     <Container>
-      <div>
-        {/* TODO: Add option to sort by date */}
-        <p className="text-4xl font-bold">Projects</p>
+      <div className="flex flex-col gap-2 text-center">
+        <p className="text-4xl font-bold">My Projects</p>
+        <p className="text-lg text-olive-300">Bringing Ideas to Life</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <hr className="text-olive-300 h-4" />
+      <div className="space-y-12">
         {projects.map((project, index) => (
-          <ProjectCard project={project} key={index} />
+          <ProjectCard project={project} key={index} index={index} />
         ))}
       </div>
     </Container>
