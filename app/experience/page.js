@@ -17,7 +17,7 @@ export default async function Page() {
       </h1>
       <div className="absolute left-16 md:left-1/2 transform md:-translate-x-1/2 w-1 top-32 bottom-4 md:bottom-8 bg-olive-700" />
       {experiences.map((e, index) => (
-        <Experience experience={e} key={index} />
+        <Experience experience={e} key={index} index={index} />
       ))}
     </Container>
   );
@@ -32,6 +32,6 @@ async function getExperiences() {
     logo
   }`;
 
-  const experiences = await client.fetch(query);
-  return experiences;
+  const exps = await client.fetch(query, { next: { revalidate: 84600 } });
+  return exps;
 }

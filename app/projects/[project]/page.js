@@ -13,6 +13,22 @@ const portableTextComponents = {
   },
 };
 
+export async function generateMetadata({ params }) {
+  const project = await getProject(params.project);
+
+  if (!project) {
+    return {
+      title: "404 - Blog not found",
+      description: "The requested project could not be found.",
+    };
+  }
+
+  return {
+    title: "Bill Yu - " + project[0].title,
+    description: project[0].description,
+  };
+}
+
 export default async function Page({ params }) {
   const project = await getProject(params.project);
 

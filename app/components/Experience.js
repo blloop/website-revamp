@@ -13,7 +13,7 @@ export default function Experience({ experience, index }) {
       transition={{ duration: 0.5, delay: index * 0.2 }}
     >
       <div
-        className={`absolute p-4 left-12 top-[3.5rem] transform -translate-x-1/2 w-20 h-20 bg-olive-300 rounded-full z-10 ${index % 2 === 0 ? "md:-right-20 md:left-auto" : "md:left-0"}`}
+        className={`absolute p-3 left-12 top-[3.5rem] transform -translate-x-1/2 w-20 h-20 bg-olive-300 rounded-full z-10 ${index % 2 === 0 ? "md:-right-20 md:left-auto" : "md:left-0"}`}
       >
         {experience.logo && (
           <Image
@@ -24,7 +24,7 @@ export default function Experience({ experience, index }) {
             width={256}
             height={256}
             alt={experience.title}
-            className="size-full"
+            className="size-full object-contain"
           />
         )}
       </div>
@@ -46,8 +46,11 @@ export default function Experience({ experience, index }) {
         </div>
         <p className="mb-2">{experience.description}</p>
         <div className="flex items-center justify-end">
-          <span className=" font-bold font-mono text-olive-300 ">
-            {experience.date}
+          <span className="px-3 py-1 font-mono bg-olive-700 text-sm font-semibold rounded-full">
+            {new Intl.DateTimeFormat("en-US", {
+              year: "numeric",
+              month: "short",
+            }).format(new Date(experience.date))}
           </span>
         </div>
       </div>
