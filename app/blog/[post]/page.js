@@ -1,10 +1,11 @@
-import { client } from '@/sanity/lib/client';
-import { PortableText } from '@portabletext/react';
-import { urlForImage } from '@/sanity/lib/image';
-import { tryGetImageDimensions } from '@sanity/asset-utils';
-import Image from 'next/image';
-import Container from '../../components/Container';
-import DatePill from '../../components/DatePill';
+import { client } from "/sanity/lib/client";
+import { PortableText } from "@portabletext/react";
+import { urlForImage } from "/sanity/lib/image";
+import { tryGetImageDimensions } from "@sanity/asset-utils";
+import Image from "next/image";
+import Container from "@/components/Container";
+import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
+import Link from "next/link";
 
 const portableTextComponents = {
   types: {
@@ -12,27 +13,72 @@ const portableTextComponents = {
   },
 };
 
-export const revalidate = 3600 // revalidate at most every hour
+export async function generateMetadata({ params }) {
+  const post = await getBlogPost(params.post);
+
+  if (!post) {
+    return {
+      title: "404 - Blog not found",
+      description: "The requested blog post could not be found.",
+    };
+  }
+
+  return {
+    title: "Bill Yu - " + post[0].title,
+    description: post[0].description,
+  };
+}
 
 export default async function Page({ params }) {
   const post = await getBlogPost(params.post);
 
   return (
-    <Container>
-      <div className='mx-auto max-w-prose space-y-8'>
-        <BlogPostHeader post={post[0]} />
-        <Image
-          src={urlForImage(post[0].image).auto('format').size(1920, 1920).url()}
-          width={1920}
-          height={1080}
-          alt={post[0].title}
-          className='h-64 w-128 object-cover rounded-2xl border border-primary-400'
+    <Container className="!max-w-3xl text-left">
+      <Link
+        href="/blog"
+        className="w-fit inline-flex items-center text-[#859F3D] hover:underline"
+      >
+        <ArrowLeft className="h-4 w-4" />
+        Back to Blog
+      </Link>
+      <header className="flex flex-col gap-2">
+        <h1 className="font-semibold text-4xl">{post[0].title}</h1>
+        <p className="font-medium text-lg">{post[0].description}</p>
+        <div className="flex items-center gap-2 my-4 text-olive-300">
+          <Calendar className="w-5 h-5" />
+          <span className="font-mono">{post[0].date}</span>
+          <div />
+          <Clock className="w-5 h-5" />
+          <span>
+            {post[0].readTime || 1} {"min read"}
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          {post[0].tags &&
+            post[0].tags.map((tag, index) => (
+              <span
+                key={index}
+                className="inline-flex items-center gap-2 bg-olive-700 px-3 py-1 rounded-full"
+              >
+                <Tag className="w-5 h-5" />
+                {tag}
+              </span>
+            ))}
+        </div>
+      </header>
+      <Image
+        src={urlForImage(post[0].image).auto("format").size(1920, 1080).url()}
+        width={1920}
+        height={1080}
+        alt={post[0].title}
+        className="w-full object-cover rounded-lg shadow-lg border-2 border-olive-50"
+      />
+      <article className="prose prose-invert md:prose-lg mx-auto">
+        <PortableText
+          value={post[0].content}
+          components={portableTextComponents}
         />
-        <hr className='border-primary-900' />
-        <article className='prose md:prose-md prose-primary mx-auto'>
-          <PortableText value={post[0].content} components={portableTextComponents} />
-        </article>
-      </div>
+      </article>
     </Container>
   );
 }
@@ -44,21 +90,16 @@ async function getBlogPost(slug) {
     date,
     'slug': slug.current,
     image,
-    content
+    tags,
+    content,
+    'readTime': round(length(pt::text(content)) / 900 )
   }`;
 
-  const posts = await client.fetch(query, { slug });
+  const posts = await client.fetch(query, {
+    slug,
+    next: { revalidate: 3600 },
+  });
   return posts;
-}
-
-function BlogPostHeader({ post }) {
-  return (
-    <header className='flex flex-col gap-4 items-center'>
-      <h1 className='font-semibold text-4xl'>{post.title}</h1>
-      <p className='font-medium text-primary-700 text-lg'>{post.description}</p>
-      <DatePill date={post.date} />
-    </header>
-  );
 }
 
 function ImageComponent({ value }) {
@@ -66,11 +107,12 @@ function ImageComponent({ value }) {
 
   return (
     <Image
-      src={urlForImage(value).fit('max').auto('format').url()}
+      src={urlForImage(value).fit("max").auto("format").url()}
+      alt=""
       width={width}
       height={height}
-      loading='lazy'
-      className='md:max-w-prose rounded-lg'
+      loading="lazy"
+      className="rounded-lg"
       style={{
         aspectRatio: width / height,
       }}

@@ -1,6 +1,6 @@
 export default {
-  name: "project",
-  title: "Project",
+  name: "experience",
+  title: "Experience",
   type: "document",
   fields: [
     {
@@ -10,14 +10,10 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
+      name: "company",
+      title: "Company",
+      type: "string",
       validation: (Rule) => Rule.required(),
-      options: {
-        source: "title",
-        maxLength: 48,
-      },
     },
     {
       name: "description",
@@ -32,19 +28,13 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "image",
-      title: "Image",
+      name: "logo",
+      title: "Logo",
       type: "image",
       validation: (Rule) => Rule.required(),
       options: {
         hotspot: true,
       },
-    },
-    {
-      name: "content",
-      title: "Content",
-      type: "array",
-      of: [{ type: "block" }, { type: "image" }],
     },
   ],
 };

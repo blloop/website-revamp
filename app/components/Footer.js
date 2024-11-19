@@ -1,13 +1,37 @@
-'use client';
+"use client";
 
-import { usePathname } from 'next/navigation';
+import { Github, Linkedin, Mail } from "lucide-react";
+import { usePathname } from "next/navigation";
 
-export default function Footer() {  
+export default function Footer() {
   const pathname = usePathname();
-  if (pathname != "/studio") {
+
+  if (!pathname.includes("/studio")) {
     return (
-      <footer className='border-t text-center p-4 text-sm font-semibold bg-primary-400 text-primary-900 border-primary-900'>
-        <p>Me &copy; {new Date().getFullYear()}</p>
+      <footer className="py-8 text-center border-t-2 border-gray-600">
+        <div className="flex justify-center space-x-6">
+          <a
+            href="https://github.com/blloop"
+            className="text-olive-300 hover:text-opacity-80 transition-colors"
+          >
+            <Github size={24} />
+          </a>
+          <a
+            href="https://linkedin.com/in/billyu32"
+            className="text-olive-300 hover:text-opacity-80 transition-colors"
+          >
+            <Linkedin size={24} />
+          </a>
+          <a
+            href="mailto:blloop@uw.edu"
+            className="text-olive-300 hover:text-opacity-80 transition-colors"
+          >
+            <Mail size={24} />
+          </a>
+        </div>
+        <p className="mt-4">
+          &copy; {new Date().getFullYear()} Bill Yu. All rights reserved.
+        </p>
       </footer>
     );
   }

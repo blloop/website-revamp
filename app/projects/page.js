@@ -1,21 +1,25 @@
-import { client } from '@/sanity/lib/client';
-import Container from '../components/Container';
-import ProjectCard from '../components/Project';
+import { client } from "/sanity/lib/client";
+import Container from "@/components/Container";
+import ProjectCard from "@/components/Project";
 
-export const revalidate = 3600 // revalidate at most every hour
+export const metadata = {
+  title: "Bill Yu | Project",
+  description: "Check out my cool projects!",
+};
 
-export default async function Projects() {
+export default async function Page() {
   const projects = await getProjects();
 
   return (
-    <Container className='flex flex-col gap-8'>
-      <div>
-        {/* TODO: Add option to sort by date */}
-        <p className='text-4xl'>My Projects</p>
+    <Container>
+      <div className="flex flex-col gap-2 text-center">
+        <p className="text-4xl font-bold">My Projects</p>
+        <p className="text-lg text-olive-300">Bringing Ideas to Life</p>
       </div>
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+      <hr className="text-olive-300 h-4" />
+      <div className="space-y-12">
+        {projects.map((project, index) => (
+          <ProjectCard project={project} key={index} index={index} />
         ))}
       </div>
     </Container>
@@ -31,7 +35,6 @@ async function getProjects() {
     image
   }`;
 
-  const projects = await client.fetch(query);
+  const projects = await client.fetch(query, { next: { revalidate: 84600 } });
   return projects;
 }
-  

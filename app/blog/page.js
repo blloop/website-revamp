@@ -1,21 +1,25 @@
-import { client } from '@/sanity/lib/client';
-import Container from '../components/Container';
-import BlogListItem from '../components/BlogList';
+import { client } from "/sanity/lib/client";
+import Container from "@/components/Container";
+import BlogCard from "@/components/Blog";
 
-export const revalidate = 3600 // revalidate at most every hour
+export const metadata = {
+  title: "Bill Yu | Blog",
+  description: "Read about my ideas on web development",
+};
 
-export default async function Blog() {
+export default async function Page() {
   const posts = await getBlogPosts();
 
   return (
-    <Container className='flex flex-col items-start gap-8 bg-primary-200'>
-      <div>
-        {/* TODO: Add option to sort by date */}
-        <p className='text-4xl'>My Blog</p>
+    <Container>
+      <div className="flex flex-col gap-2">
+        <p className="text-4xl font-bold">Blog Articles</p>
+        <p className="text-lg text-olive-300">Insights on Web Development</p>
       </div>
-      <div className='flex flex-col gap-4'>
-        {posts.map((post) => (
-            <BlogListItem key={post.slug} post={post}/>
+      {/* TODO: Add option to sort by date */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map((post, index) => (
+          <BlogCard post={post} key={index} index={index} />
         ))}
       </div>
     </Container>
@@ -28,9 +32,10 @@ async function getBlogPosts() {
     description,
     date,
     'slug':slug.current,
-    image
+    image,
+    tags
   }`;
 
-  const posts = await client.fetch(query);
+  const posts = await client.fetch(query, { next: { revalidate: 84600 } });
   return posts;
 }
