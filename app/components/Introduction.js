@@ -108,7 +108,7 @@ export default function Introduction() {
             seamless user experiences. My journey in web development is driven
             by a constant desire to learn and innovate.
           </p>
-          <div className="w-32 h-1 bg-olive-300"></div>
+          <div className="w-48 h-1 bg-olive-300"></div>
         </div>
       </div>
     </section>

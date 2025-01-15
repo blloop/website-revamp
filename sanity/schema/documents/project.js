@@ -30,7 +30,7 @@ export default {
       type: "array",
       of: [{ type: "string" }],
       validation: (Rule) => Rule.required(),
-    },    
+    },
     {
       name: "description",
       title: "Description",
