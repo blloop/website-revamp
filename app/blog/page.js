@@ -3,7 +3,7 @@ import Container from "@/components/Container";
 import BlogCard from "@/components/Blog";
 
 export const metadata = {
-  title: "Bill Yu | Blog",
+  title: "Bill Yu - Blog",
   description: "Read about my ideas on web development",
 };
 

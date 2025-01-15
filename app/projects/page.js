@@ -3,7 +3,7 @@ import Container from "@/components/Container";
 import ProjectCard from "@/components/Project";
 
 export const metadata = {
-  title: "Bill Yu | Project",
+  title: "Bill Yu - Projects",
   description: "Check out my cool projects!",
 };
 

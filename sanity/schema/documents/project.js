@@ -23,7 +23,6 @@ export default {
       name: "link",
       title: "Link",
       type: "text",
-      validation: (Rule) => Rule.required(),
     },
     {
       name: "tags",

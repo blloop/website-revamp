@@ -3,7 +3,7 @@ import Container from "@/components/Container";
 import Experience from "@/components/Experience";
 
 export const metadata = {
-  title: "Bill Yu | Experience",
+  title: "Bill Yu - Experience",
   description: "Learn about my journey",
 };
 
