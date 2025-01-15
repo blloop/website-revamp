@@ -20,6 +20,19 @@ export default {
       },
     },
     {
+      name: "link",
+      title: "Link",
+      type: "text",
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "string" }],
+      validation: (Rule) => Rule.required(),
+    },    
+    {
       name: "description",
       title: "Description",
       type: "text",

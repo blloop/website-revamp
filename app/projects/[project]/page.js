@@ -79,6 +79,8 @@ async function getProject(slug) {
     description,
     date,
     'slug': slug.current,
+    tags,
+    link,
     image,
     content
   }`;

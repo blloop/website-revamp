@@ -32,6 +32,7 @@ async function getProjects() {
     description,
     date,
     'slug':slug.current,
+    tags,
     image
   }`;
 
