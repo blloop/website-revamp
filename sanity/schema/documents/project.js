@@ -22,7 +22,8 @@ export default {
     {
       name: "link",
       title: "Link",
-      type: "text",
+      type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "tags",
