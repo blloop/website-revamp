@@ -26,7 +26,7 @@ export default async function Page({ searchParams }) {
             {searchParams[Object.keys(searchParams)[0]]}
           </p>
           <a href="/blog">
-            <X />
+            <X className="text-olive-50 md:hover:text-olive-300 transition-colors" />
           </a>
         </span>
       </div>

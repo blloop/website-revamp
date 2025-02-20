@@ -26,12 +26,12 @@ export default async function Page({ searchParams }) {
             {searchParams[Object.keys(searchParams)[0]]}
           </p>
           <a href="/projects">
-            <X />
+            <X className="text-olive-50 md:hover:text-olive-300 transition-colors" />
           </a>
         </span>
       </div>
       <hr className="text-olive-300 h-4" />
-      <div className="space-y-12">
+      <div className="space-y-12 pb-4">
         {orderByDate(filterByTag(projects, searchParams["tag"])).map(
           (project, index) => (
             <ProjectCard project={project} key={index} index={index} />

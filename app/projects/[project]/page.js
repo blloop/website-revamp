@@ -36,16 +36,16 @@ export default async function Page({ params }) {
     <Container className="!max-w-3xl text-left">
       <Link
         href="/projects"
-        className="w-fit inline-flex items-center text-[#859F3D] hover:underline"
+        className="w-fit inline-flex items-center text-olive-300 hover:underline"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to Projects
       </Link>
-      <header className="flex flex-col gap-2">
+      <header className="flex flex-col gap-4 sm:gap-2">
         <h1 className="font-semibold text-4xl">{project[0].title}</h1>
         <p className="font-medium text-lg">{project[0].description}</p>
         {project[0].tags && (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             {project[0].tags.map((tag, index) => (
               <a
                 key={index}
@@ -76,14 +76,14 @@ export default async function Page({ params }) {
           className="w-full object-cover rounded-lg shadow-lg"
         />
       </div>
-      <span className="flex items-end gap-1">
+      <span className="flex items-end gap-1 flex-wrap">
         <p>See it in action:</p>
         <a target="_blank" className="underline text-lg" href={project[0].link}>
           {project[0].link}
         </a>
       </span>
       <hr className="border-olive-300" />
-      <article className="prose prose-invert md:prose-lg">
+      <article className="prose prose-invert md:prose-lg text-olive-50">
         <PortableText
           value={project[0].content}
           components={portableTextComponents}

@@ -3,13 +3,15 @@ import { PortableText } from "@portabletext/react";
 import { urlForImage } from "/sanity/lib/image";
 import { tryGetImageDimensions } from "@sanity/asset-utils";
 import Image from "next/image";
-import Container from "@/components/Container";
-import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import Link from "next/link";
+import Container from "@/components/Container";
+import { renderCode } from "@/utils";
+import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 
 const portableTextComponents = {
   types: {
     image: ImageComponent,
+    code: ({ value }) => renderCode(value),
   },
 };
 
@@ -36,16 +38,16 @@ export default async function Page({ params }) {
     <Container className="!max-w-3xl text-left">
       <Link
         href="/blog"
-        className="w-fit inline-flex items-center text-[#859F3D] hover:underline"
+        className="w-fit inline-flex items-center text-olive-300 hover:underline"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to Blog
       </Link>
-      <header className="flex flex-col gap-2">
+      <header className="flex flex-col gap-4 sm:gap-2">
         <h1 className="font-semibold text-4xl">{post[0].title}</h1>
         <p className="font-medium text-lg">{post[0].description}</p>
         {post[0].tags && (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             {post[0].tags.map((tag, index) => (
               <a
                 key={index}
@@ -75,7 +77,7 @@ export default async function Page({ params }) {
         alt={post[0].title}
         className="w-full object-cover rounded-lg shadow-lg border-2 border-olive-50"
       />
-      <article className="prose prose-invert md:prose-lg">
+      <article className="prose prose-invert md:prose-lg text-olive-50">
         <PortableText
           value={post[0].content}
           components={portableTextComponents}
