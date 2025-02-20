@@ -78,7 +78,7 @@ export default async function Page({ params }) {
       </div>
       <span className="flex items-end gap-1">
         <p>See it in action:</p>
-        <a className="underline text-lg" href={project[0].link}>
+        <a target="_blank" className="underline text-lg" href={project[0].link}>
           {project[0].link}
         </a>
       </span>
