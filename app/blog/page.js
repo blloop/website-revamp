@@ -2,6 +2,7 @@ import { client } from "/sanity/lib/client";
 import Container from "@/components/Container";
 import BlogCard from "@/components/Blog";
 import { Tag, X } from "lucide-react";
+import { filterByTag, orderByDate } from "@/utils";
 
 export const metadata = {
   title: "Bill Yu - Blog",
@@ -31,12 +32,11 @@ export default async function Page({ searchParams }) {
       </div>
       {/* TODO: Add option to sort by date */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {(searchParams["tag"]
-          ? posts.filter((e) => e.tags?.includes(searchParams["tag"]))
-          : posts
-        ).map((post, index) => (
-          <BlogCard post={post} key={index} index={index} />
-        ))}
+        {orderByDate(filterByTag(posts, searchParams["tag"])).map(
+          (post, index) => (
+            <BlogCard post={post} key={index} index={index} />
+          ),
+        )}
       </div>
     </Container>
   );

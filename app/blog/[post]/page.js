@@ -75,7 +75,7 @@ export default async function Page({ params }) {
         alt={post[0].title}
         className="w-full object-cover rounded-lg shadow-lg border-2 border-olive-50"
       />
-      <article className="prose prose-invert md:prose-lg mx-auto">
+      <article className="prose prose-invert md:prose-lg">
         <PortableText
           value={post[0].content}
           components={portableTextComponents}

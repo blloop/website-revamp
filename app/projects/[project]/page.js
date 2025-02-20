@@ -83,7 +83,7 @@ export default async function Page({ params }) {
         </a>
       </span>
       <hr className="border-olive-300" />
-      <article className="prose prose-invert md:prose-lg mx-auto">
+      <article className="prose prose-invert md:prose-lg">
         <PortableText
           value={project[0].content}
           components={portableTextComponents}

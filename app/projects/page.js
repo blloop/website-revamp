@@ -1,6 +1,7 @@
 import { client } from "/sanity/lib/client";
 import Container from "@/components/Container";
 import ProjectCard from "@/components/Project";
+import { filterByTag, orderByDate } from "@/utils";
 import { Tag, X } from "lucide-react";
 
 export const metadata = {
@@ -31,12 +32,11 @@ export default async function Page({ searchParams }) {
       </div>
       <hr className="text-olive-300 h-4" />
       <div className="space-y-12">
-        {(searchParams["tag"]
-          ? projects.filter((e) => e.tags?.includes(searchParams["tag"]))
-          : projects
-        ).map((project, index) => (
-          <ProjectCard project={project} key={index} index={index} />
-        ))}
+        {orderByDate(filterByTag(projects, searchParams["tag"])).map(
+          (project, index) => (
+            <ProjectCard project={project} key={index} index={index} />
+          ),
+        )}
       </div>
     </Container>
   );
