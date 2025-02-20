@@ -12,7 +12,7 @@ const highlights = [
     icon: Globe,
     title: "Student Organization Website",
     description:
-      "Initiate site for student organization offering free websites to local businesses through student volunteers.",
+      "Initiated site for student organization curating free websites to local businesses through student volunteers.",
     link: "/projects/web-impact",
   },
   {

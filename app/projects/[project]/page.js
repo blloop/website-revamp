@@ -6,10 +6,12 @@ import Image from "next/image";
 import Container from "@/components/Container";
 import { ArrowLeft, Calendar, Tag } from "lucide-react";
 import Link from "next/link";
+import { renderCode } from "@/utils";
 
 const portableTextComponents = {
   types: {
     image: ImageComponent,
+    code: ({ value }) => renderCode(value),
   },
 };
 

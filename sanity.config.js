@@ -10,6 +10,7 @@ import { deskTool } from "sanity/desk";
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema/index";
+import { codeInput } from "@sanity/code-input";
 
 export default defineConfig({
   basePath: "/studio",
@@ -23,5 +24,6 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
     // media(),
+    codeInput(),
   ],
 });
