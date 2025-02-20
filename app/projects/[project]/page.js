@@ -4,7 +4,7 @@ import { urlForImage } from "/sanity/lib/image";
 import { tryGetImageDimensions } from "@sanity/asset-utils";
 import Image from "next/image";
 import Container from "@/components/Container";
-import { ArrowLeft, Calendar } from "lucide-react";
+import { ArrowLeft, Calendar, Tag } from "lucide-react";
 import Link from "next/link";
 
 const portableTextComponents = {
@@ -44,6 +44,20 @@ export default async function Page({ params }) {
       <header className="flex flex-col gap-2">
         <h1 className="font-semibold text-4xl">{project[0].title}</h1>
         <p className="font-medium text-lg">{project[0].description}</p>
+        {project[0].tags && (
+          <div className="flex items-center gap-2">
+            {project[0].tags.map((tag, index) => (
+              <a
+                key={index}
+                href={`/projects?tag=${tag}`}
+                className="inline-flex items-center gap-2 bg-olive-700 px-3 py-1 rounded-full"
+              >
+                <Tag className="w-5 h-5" />
+                {tag}
+              </a>
+            ))}
+          </div>
+        )}
         <div className="flex text-olive-300">
           <Calendar className="w-5 h-5 mr-2" />
           <span className="font-mono">{project[0].date}</span>
@@ -62,8 +76,14 @@ export default async function Page({ params }) {
           className="w-full object-cover rounded-lg shadow-lg"
         />
       </div>
+      <span className="flex items-end gap-1">
+        <p>See it in action:</p>
+        <a target="_blank" className="underline text-lg" href={project[0].link}>
+          {project[0].link}
+        </a>
+      </span>
       <hr className="border-olive-300" />
-      <article className="prose prose-invert md:prose-lg mx-auto">
+      <article className="prose prose-invert md:prose-lg">
         <PortableText
           value={project[0].content}
           components={portableTextComponents}
@@ -79,6 +99,8 @@ async function getProject(slug) {
     description,
     date,
     'slug': slug.current,
+    tags,
+    link,
     image,
     content
   }`;

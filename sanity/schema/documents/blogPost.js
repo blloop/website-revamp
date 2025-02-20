@@ -45,6 +45,7 @@ export default {
       title: "Tags",
       type: "array",
       of: [{ type: "string" }],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "content",

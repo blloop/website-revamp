@@ -2,7 +2,7 @@ import Container from "@/components/Container";
 import Form from "@/components/Form";
 
 export const metadata = {
-  title: "Bill Yu | Contact",
+  title: "Bill Yu - Contact",
   description: "Send me a message!",
 };
 

@@ -24,9 +24,9 @@ export default function ProjectCard({ project, index }) {
           alt={project.title}
           className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
         />
-        <div className="group absolute inset-0 bg-olive-300 bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
+        <div className="group absolute inset-0 bg-olive-300 bg-opacity-0 md:hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
           <Link href={`/projects/${project.slug}`}>
-            <ArrowUpRight className="w-12 h-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer" />
+            <ArrowUpRight className="w-12 h-12 opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 cursor-pointer" />
           </Link>
         </div>
       </div>

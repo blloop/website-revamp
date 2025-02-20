@@ -44,7 +44,21 @@ export default async function Page({ params }) {
       <header className="flex flex-col gap-2">
         <h1 className="font-semibold text-4xl">{post[0].title}</h1>
         <p className="font-medium text-lg">{post[0].description}</p>
-        <div className="flex items-center gap-2 my-4 text-olive-300">
+        {post[0].tags && (
+          <div className="flex items-center gap-2">
+            {post[0].tags.map((tag, index) => (
+              <a
+                key={index}
+                href={`/blog?tag=${tag}`}
+                className="inline-flex items-center gap-2 text-olive-50 bg-olive-700 px-3 py-1 rounded-full"
+              >
+                <Tag className="w-5 h-5" />
+                {tag}
+              </a>
+            ))}
+          </div>
+        )}
+        <div className="flex items-center gap-2 text-olive-300">
           <Calendar className="w-5 h-5" />
           <span className="font-mono">{post[0].date}</span>
           <div />
@@ -52,18 +66,6 @@ export default async function Page({ params }) {
           <span>
             {post[0].readTime || 1} {"min read"}
           </span>
-        </div>
-        <div className="flex items-center gap-2">
-          {post[0].tags &&
-            post[0].tags.map((tag, index) => (
-              <span
-                key={index}
-                className="inline-flex items-center gap-2 bg-olive-700 px-3 py-1 rounded-full"
-              >
-                <Tag className="w-5 h-5" />
-                {tag}
-              </span>
-            ))}
         </div>
       </header>
       <Image
@@ -73,7 +75,7 @@ export default async function Page({ params }) {
         alt={post[0].title}
         className="w-full object-cover rounded-lg shadow-lg border-2 border-olive-50"
       />
-      <article className="prose prose-invert md:prose-lg mx-auto">
+      <article className="prose prose-invert md:prose-lg">
         <PortableText
           value={post[0].content}
           components={portableTextComponents}

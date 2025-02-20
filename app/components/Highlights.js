@@ -6,18 +6,21 @@ const highlights = [
     title: "Medical Education Platform",
     description:
       "Currently developing a case-based learning platform to transform education for professors and students alike.",
+    link: "/projects/rxpert",
   },
   {
     icon: Globe,
     title: "Student Organization Website",
     description:
       "Initiate site for student organization offering free websites to local businesses through student volunteers.",
+    link: "/projects/web-impact",
   },
   {
     icon: Tractor,
     title: "BIPOC Urban Farm Website",
     description:
       "Piloted a team of developers to create an interactive website for a local urban farm, improving its online presence.",
+    link: "/projects/percussion-farms",
   },
 ];
 
@@ -36,7 +39,7 @@ export default function Highlights() {
             <highlight.icon className="w-12 h-12 mb-4 text-olive-300" />
             <h3 className="text-xl font-bold mb-2">{highlight.title}</h3>
             <p className="mb-4">{highlight.description}</p>
-            <a href="#" className="text-olive-300 hover:underline">
+            <a href={highlight.link} className="text-olive-300 hover:underline">
               Read More
             </a>
           </div>
