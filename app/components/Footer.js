@@ -8,7 +8,7 @@ export default function Footer() {
 
   if (!pathname.includes("/studio")) {
     return (
-      <footer className="py-8 text-center border-t-2 border-gray-600">
+      <footer className="py-8 text-center border-t-2 border-gray-700">
         <div className="flex justify-center space-x-6">
           <a
             href="https://github.com/blloop"

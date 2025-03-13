@@ -79,7 +79,7 @@ export default function Form() {
   return (
     <motion.form
       onSubmit={sendEmail}
-      className="w-[48rem] max-w-full mx-auto space-y-6 bg-gray-600 p-8 rounded-lg shadow-xl"
+      className="w-[48rem] max-w-full mx-auto space-y-6 bg-gray-700 p-8 rounded-lg shadow-xl"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}

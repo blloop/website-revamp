@@ -30,14 +30,14 @@ export default function Experience({ experience, index }) {
       </div>
       <div
         className={`absolute w-0 h-0 top-20
-        border-gray-600 
+        border-gray-700 
         border-t-[16px] border-t-transparent
         border-r-[32px]
         left-24
         ${index % 2 === 0 ? "md:border-l-[32px] md:border-r-0 md:right-16 md:left-auto" : "md:left-16"}
         border-b-[16px] border-b-transparent`}
       ></div>
-      <div className="bg-gray-600 relative z-10 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <div className="bg-gray-700 relative z-10 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
         <div className="flex justify-between md:justify-start items-center mb-4">
           <div>
             <h3 className="text-xl font-bold">{experience.title}</h3>

@@ -12,7 +12,7 @@ export default function Navbar() {
 
   if (!pathname.includes("/studio")) {
     return (
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-600 bg-opacity-75 p-4">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-700 bg-opacity-75 p-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold">
             {pathname === "/" ? (
@@ -47,7 +47,7 @@ export default function Navbar() {
             )}
           </div>
           {open && (
-            <div className="flex flex-col text-right w-full absolute top-full left-0 bg-gray-600 bg-opacity-50">
+            <div className="flex flex-col text-right w-full absolute top-full left-0 bg-gray-700 bg-opacity-50">
               {links.map((page, index) =>
                 pathname === "/" + page.toLowerCase() ? (
                   <p
