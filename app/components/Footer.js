@@ -13,12 +13,14 @@ export default function Footer() {
           <a
             href="https://github.com/blloop"
             className="text-olive-300 hover:text-opacity-80 transition-colors"
+            target="_blank"
           >
             <Github size={24} />
           </a>
           <a
             href="https://linkedin.com/in/billyu32"
             className="text-olive-300 hover:text-opacity-80 transition-colors"
+            target="_blank"
           >
             <Linkedin size={24} />
           </a>

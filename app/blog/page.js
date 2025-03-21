@@ -52,6 +52,6 @@ async function getBlogPosts() {
     tags
   }`;
 
-  const posts = await client.fetch(query, { next: { revalidate: 84600 } });
+  const posts = await client.fetch(query, { next: { revalidate: 3600 } });
   return posts;
 }

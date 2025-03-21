@@ -52,6 +52,6 @@ async function getProjects() {
     image
   }`;
 
-  const projects = await client.fetch(query, { next: { revalidate: 84600 } });
+  const projects = await client.fetch(query, { next: { revalidate: 3600 } });
   return projects;
 }

@@ -32,6 +32,6 @@ async function getExperiences() {
     logo
   }`;
 
-  const exps = await client.fetch(query, { next: { revalidate: 84600 } });
+  const exps = await client.fetch(query, { next: { revalidate: 3600 } });
   return exps;
 }

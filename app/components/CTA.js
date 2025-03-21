@@ -13,7 +13,7 @@ export default function CTA() {
       <div className="container mx-auto px-8">
         <h2 className="text-3xl font-bold mb-8">Let&apos;s Connect</h2>
         <p className="mb-8">
-          Interested in working together or have a question? Feel free to reach
+          Interested in working together? Have a question? Feel free to reach
           out!
         </p>
         <motion.button whileHover={{ scale: 1.05 }}>
